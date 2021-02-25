@@ -10,35 +10,35 @@ function App() {
     setNameInput(newName);
   }
 
-  // let penguinFirstNames =
-  //   {
-  //     a: Pecky,
-  //     b: Chubbers,
-  //     c: Beaky,
-  //     d: Fishbreath,
-  //     e: Fuzzbutt,
-  //     f: Bigbeak,
-  //     g: Pebbles,
-  //     h: Fishcakes,
-  //     i: Tumtums,
-  //     j: Shrimpy,
-  //     k: Featherface, 
-  //     l: Honkers,
-  //     m: Blubbers,
-  //     n: Squawky,
-  //     o: Waddles,
-  //     p: Puddles,
-  //     q: Squidhead, 
-  //     r: Flippers,
-  //     s: Fishface,
-  //     t: Squeaks,
-  //     u: Hoppy,
-  //     v: Wobbles,
-  //     w: Flappity,
-  //     x: Chinstrap,
-  //     y: Feathers,
-  //     z: Stubby
-  //   };
+  let penguinFirstNames =
+    {
+      a: 'Pecky',
+      b: 'Chubbers',
+      c: 'Beaky',
+      d: 'Fishbreath',
+      e: 'Fuzzbutt',
+      f: 'Bigbeak',
+      g: 'Pebbles',
+      h: 'Fishcakes',
+      i: 'Tumtums',
+      j: 'Shrimpy',
+      k: 'Featherface', 
+      l: 'Honkers',
+      m: 'Blubbers',
+      n: 'Squawky',
+      o: 'Waddles',
+      p: 'Puddles',
+      q: 'Squidhead', 
+      r: 'Flippers',
+      s: 'Fishface',
+      t: 'Squeaks',
+      u: 'Hoppy',
+      v: 'Wobbles',
+      w: 'Flappity',
+      x: 'Chinstrap',
+      y: 'Feathers',
+      z: 'Stubby'
+    };
     
     // console.log(penguinFirstNames.a);
 
@@ -47,14 +47,38 @@ function App() {
   // letters A-M = Mc
   // N-Z = Von
 
-  // let penguinLastNames =
-  // [Flapperson, Waddlebottom, Flapdoodle, Hoppington, Beakerson, Squeakybeak, Krillington, Featherbottom, Beady eyes, Roly poly, Bellyflop, Peckington, Pecks-a-lot, Squidbreath, Squaksalot, Fancyflippers, Hopsalot, Flappyfeet, Blubberbuns, Pebblepincher, Wigglefeet, Flapperson, Snowballs, Swimmington, Flipperstein, 'Slip\'n\'Slide'];
-
-  // let alphabet =
-  // [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z];
+  let penguinLastNames =
+    {
+      a: 'Flapperson',
+      b: 'Waddlebottom',
+      c: 'Flapdoodle',
+      d: 'Hoppington',
+      e: 'Beakerson',
+      f: 'Squeakybeak',
+      g: 'Krillington',
+      h: 'Featherbottom',
+      i: 'Beady eyes',
+      j: 'Roly poly',
+      k: 'Bellyflop',
+      l: 'Peckington',
+      m: 'Pecks-a-lot',
+      n: 'Squidbreath',
+      o: 'Squaksalot',
+      p: 'Fancyflippers',
+      q: 'Hopsalot',
+      r: 'Flappyfeet',
+      s: 'Blubberbuns',
+      t: 'Pebblepincher',
+      u: 'Wigglefeet',
+      v: 'Flapperson',
+      w: 'Snowballs',
+      x: 'Swimmington',
+      y: 'Flipperstein',
+      z: 'Slip\'n\'Slide'
+    };
 
   const grabCharacters = () => {
-    // let firstChars = console.log(nameInput.match(/[A-Z]/g).join(' '))
+    let firstChars = console.log(nameInput.match(/[A-Z]/g).join(' '))
   }
 
   return (
