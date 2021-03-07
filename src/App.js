@@ -3,9 +3,9 @@ import './App.css';
 
 function App() {
   const [ nameInput, setNameInput ] = useState('');
-  // const [ penguinFirstName, setPenguinFirstName ] = useState('');
-  // const [ penguinMiddleName, setPenguinMiddleName ] = useState('');
-  // const [ penguinLastName, setPenguinLastName ] = useState('');
+  const [ penguinFirstName, setPenguinFirstName ] = useState('');
+  const [ penguinMiddleName, setPenguinMiddleName ] = useState('');
+  const [ penguinLastName, setPenguinLastName ] = useState('');
 
   const handleOnChange = (event) => {
     setNameInput(event.target.value);
@@ -79,15 +79,22 @@ function App() {
     const handleUserName = (event) => {
       const name = nameInput.toLowerCase();
       const getInitials = name.split(' ').reduce((response, word) => response + word.slice(0, 1), '');
-      console.log(getInitials);
+      // console.log(getInitials);
       const secondInitial = getInitials[1];
-      console.log(secondInitial);
+      // console.log(secondInitial);
+      const hasMiddleNames = getInitials.length >= 3;
+
+      setPenguinFirstName(penguinFirstNameList[getInitials[0]]);
+
+      if (hasMiddleNames) {
+        setPenguinMiddleName(/^[a-n]/.test(secondInitial) ? 'Mc' : 'Von');
+      }
+
+      setPenguinLastName(penguinLastNameList[getInitials[getInitials.length - 1]]);
     }
 
     const onKeyDown = (event) => {
       if (event.key === 'Enter') {
-        event.preventDefault();
-        event.stopPropagation();
         handleUserName();   
       }
     }
@@ -112,9 +119,9 @@ function App() {
       >
         Click & see your penguin name 🐧
       </div>
-      {/* <div className="penguin-name">
-        
-      </div> */}
+      <div className="penguin-name">
+        {penguinFirstName} {penguinMiddleName} {penguinLastName}
+      </div>
     </div>
   );
 }
