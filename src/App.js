@@ -6,6 +6,7 @@ function App() {
   const [ penguinFirstName, setPenguinFirstName ] = useState('');
   const [ penguinMiddleName, setPenguinMiddleName ] = useState('');
   const [ penguinLastName, setPenguinLastName ] = useState('');
+  const [ errors, setErrors ] = useState('');
 
   const handleOnChange = (event) => {
     setNameInput(event.target.value);
@@ -83,6 +84,21 @@ function App() {
       const secondInitial = getInitials[1];
       // console.log(secondInitial);
       const hasMiddleNames = getInitials.length >= 3;
+      let errorMessage = '';
+      let hasErrors = false;
+      const lettersAndDash = /^[A-Za-z-]+$/
+
+      if (nameInput === '') {
+        errorMessage = 'Please type in your name';
+        hasErrors = true;
+      }
+      setErrors(errorMessage);
+
+      if (name !== lettersAndDash) {
+        errorMessage = 'Please enter letters and dashes only';
+        hasErrors = true;
+      }
+      setErrors(errorMessage);
 
       setPenguinFirstName(penguinFirstNameList[getInitials[0]]);
 
@@ -102,8 +118,9 @@ function App() {
   return (
     <div className="app">
       <div className="name-question">
-        What's your first & last name?
+        What's your name?
       </div>
+      {errors && <div className="error-text">{errors}</div>}
       <input
         onChange={handleOnChange}
         value={nameInput}
@@ -119,9 +136,11 @@ function App() {
       >
         Click & see your penguin name 🐧
       </div>
-      <div className="penguin-name">
-        {penguinFirstName} {penguinMiddleName} {penguinLastName}
-      </div>
+      {!errors &&
+        <div className="penguin-name">
+          {penguinFirstName} {penguinMiddleName} {penguinLastName}
+        </div>
+      }
     </div>
   );
 }
