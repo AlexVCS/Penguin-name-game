@@ -72,41 +72,30 @@ function App() {
       z: 'Slip\'n\'Slide'
     };
 
-  // let penguinMiddleNames = [Mc, Von];
-  
-  // letters A-M = Mc
-  // N-Z = Von
-
     const handleUserName = (event) => {
       const name = nameInput.toLowerCase();
-      const getInitials = name.split(' ').reduce((response, word) => response + word.slice(0, 1), '');
-      // console.log(getInitials);
-      const secondInitial = getInitials[1];
-      // console.log(secondInitial);
-      const hasMiddleNames = getInitials.length >= 3;
+      const initials = name.split(' ').reduce((response, word) => response + word.slice(0, 1), '');
+      const secondInitial = initials[1];
+      const hasMiddleNames = initials.length >= 3;
       let errorMessage = '';
-      let hasErrors = false;
-      const lettersAndDash = /^[A-Za-z-]+$/
+      const lettersAndDash = /^[A-Za-z\-]+$/
 
-      if (nameInput === '') {
-        errorMessage = 'Please type in your name';
-        hasErrors = true;
-      }
-      setErrors(errorMessage);
+      // if (nameInput === '') {
+      //   errorMessage = 'Please type in your name';
+      // }
 
       if (name !== lettersAndDash) {
         errorMessage = 'Please enter letters and dashes only';
-        hasErrors = true;
       }
       setErrors(errorMessage);
 
-      setPenguinFirstName(penguinFirstNameList[getInitials[0]]);
+      setPenguinFirstName(penguinFirstNameList[initials[0]]);
 
       if (hasMiddleNames) {
         setPenguinMiddleName(/^[a-n]/.test(secondInitial) ? 'Mc' : 'Von');
       }
 
-      setPenguinLastName(penguinLastNameList[getInitials[getInitials.length - 1]]);
+      setPenguinLastName(penguinLastNameList[initials[initials.length - 1]]);
     }
 
     const onKeyDown = (event) => {
